@@ -123,6 +123,10 @@ fn input_and_search_caller(sorted_scientists: &[Scientist<'_>; 10]) -> (String, 
 
     let last_name: &str = lowercase_name.split_whitespace().last().unwrap();
 
+    search_function_caller(sorted_scientists, last_name, input_fullname)
+}
+
+fn search_function_caller(sorted_scientists: &[Scientist<'_>; 10], last_name: &str, input_fullname: String) -> (String, Option<usize>) {
     let sorted_scientists_length: usize = sorted_scientists.len();
 
     let found_index: Option<usize> = exponential_search(sorted_scientists, &last_name, sorted_scientists_length).unwrap_or_else(|| None);
